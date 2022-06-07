@@ -8,15 +8,16 @@ export const Block = (p) =>
 
       const [no, setno] = useState(1);
 
-      useEffect(() => {
-         const timer = setTimeout(() => setno(no+1), 100);
+      // useEffect(() => {
+      //    const timer = setTimeout(() => setno(no + 1), 1000);
 
-         if(no === 100)
-         { 
-            setno(1)     
-         }
+      //    if(no === 100)
+      //    { 
+      //       setno(1)     
+      //    }
 
-      }, [no]);
+      // }, [no]);
+
 
 
 
@@ -24,8 +25,7 @@ export const Block = (p) =>
             <>
                 <View style={styles.parent}>                   
                    {p.value === no ?
-                    <Text style={{backgroundColor:"yellow",height:"100%", 
-                    textAlign: 'center', fontWeight: 'normal',padding:"20%" }}>
+                <Text style={styles.child}>
                        {"😈"}
                     </Text>
                     :
