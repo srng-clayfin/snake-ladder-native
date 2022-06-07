@@ -1,15 +1,31 @@
+import { useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native"
+
 
 export const Block = (p) =>
 {
-    let user = 1;
+      let user = 1;
+
+      const [no, setno] = useState(1);
+
+      useEffect(() => {
+         const timer = setTimeout(() => setno(no+1), 100);
+
+         if(no === 100)
+         { 
+            setno(1)     
+         }
+
+      }, [no]);
+
+
 
     return(
             <>
-                <View style={styles.parent}>
-                   
-                   {p.value === user ?
-                    <Text style={styles.child}>
+                <View style={styles.parent}>                   
+                   {p.value === no ?
+                    <Text style={{backgroundColor:"yellow",height:"100%", 
+                    textAlign: 'center', fontWeight: 'normal',padding:"20%" }}>
                        {"😈"}
                     </Text>
                     :

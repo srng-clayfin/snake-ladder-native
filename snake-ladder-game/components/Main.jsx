@@ -2,11 +2,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Block } from "./Block";
 
 
-
-
 export const Main = () =>
 {
-
 
     return(
 
@@ -19,6 +16,7 @@ export const Main = () =>
                 )
             }
 
+            {/* <Text>{"Srng 07002 "}</Text> */}
         </View>
 
     )
