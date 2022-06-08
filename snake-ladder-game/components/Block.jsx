@@ -10,40 +10,26 @@ export const Block = (p) =>
 
       const [no, setno] = useState(1);
 
-      // useEffect(() => {
-      //    const timer = setTimeout(() => setno(no + 1), 1000);
-
-      //    if(no === 100)
-      //    { 
-      //       setno(1)     
-      //    }
-
-      // }, [no]);
-
-
-
-
-
-
-
     return(
             <>
                 <View style={styles.parent}>                   
-                   {p.value === no ?
+                   {p.value === p.place1 ?
                 <Text style={styles.child}>
                        {"😈"}
                     </Text>
                     :
-                    p.value === 24 || p.value === 57 ?
-                    <Text style={styles.child}>
-                       {"🔥"}
-                    </Text>
-                   :                    
-                    p.value === 43 || p.value === 88 || p.value === 73 ?
-                    <Text style={styles.child}>
-                       {"🐍"}
-                    </Text>
-                    :
+
+                  //   p.value === 24 || p.value === 57 ?
+                  //   <Text style={styles.child}>
+                  //      {"🔥"}
+                  //   </Text>
+                  //  :                    
+                  //   p.value === 43 || p.value === 88 || p.value === 73 ?
+                  //   <Text style={styles.child}>
+                  //      {"🐍"}
+                  //   </Text>
+                  //   :
+                  
                     <Text style={styles.child}>
                        {p.value}
                     </Text>

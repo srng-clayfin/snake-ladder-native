@@ -1,26 +1,34 @@
-import { StyleSheet, Dimensions, View } from 'react-native';
+import { StyleSheet, ImageBackground, Dimensions, View } from 'react-native';
 import { Block } from "./Block";
 
-
-
 const windowWidth = Dimensions.get('window').width;
+const image = require('../assets/snake1.jpeg');
 
-export const Board = () =>
+export const Board = (p) =>
 {
 
 
     return(
 
-        <View style={styles.container}>
-            {
-                [...Array(100)].map((el, i) => 
-                    <View key={i}>
-                            <Block value={100-i}/>
-                    </View>
-                )
-            }
+        <View style={styles.container}>                     
+            <ImageBackground source={image} resizeMode="cover" style={styles.image}>
 
-            {/* <Text>{"Srng 07002 "}</Text> */}
+                <View style={{
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                    padding: 2,
+                }}>
+
+                    {
+                        [...Array(100)].map((el, i) =>
+                            <View key={i}>
+                                <Block value={100 - i} place1={p.place1} />
+                            </View>
+                        )
+                    }
+
+                </View>
+            </ImageBackground>
         </View>
 
     )
@@ -31,10 +39,13 @@ const styles = StyleSheet.create({
       height: windowWidth-20,
       width : windowWidth-20,
       borderWidth:3,
-      padding:2,      
+        //   
 
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-    }
+    },
+    image: {
+        height: windowWidth - 25,
+        width: windowWidth - 25,
+
+    },
     
-  });
+});
