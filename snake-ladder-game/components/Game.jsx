@@ -28,7 +28,7 @@ export const Game = () => {
 
         if (place1 >= 100) {
             setPlace1(1);
-        }
+        } 
 
     }, [diceflag])
 
@@ -87,10 +87,4 @@ const styles = StyleSheet.create({
         marginTop:10,
         alignItems: "center",        
     }
-
-
-
-
-
-
 });
