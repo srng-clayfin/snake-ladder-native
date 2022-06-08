@@ -1,13 +1,26 @@
 import { useState } from "react"
-import { StyleSheet, Text, TouchableOpacity,Alert, View } from "react-native"
+import { StyleSheet, Text, TouchableOpacity, ImageBackground, View } from "react-native"
 import { Board } from "./Board"
 
 
 
 export const Game = () => {
 
-    const [c,setC] = useState(0);
-    const [count,setCount] = useState(0);
+    const [dice, setDice] = useState(1);
+
+    const diceNo = () => {
+        const count = Math.floor(Math.random() * (6 - 1 + 1) + 1)
+        if (dice != count) {
+            setDice(count);
+        }
+        else {
+            diceNo();
+        }
+    }
+
+    const handleDice = () => {
+        diceNo();
+    } 
 
     return (
 
@@ -19,8 +32,16 @@ export const Game = () => {
             <View style={ styles.diceparent }>                
                 <TouchableOpacity
                 style={styles.button}
-                onPress={() => setC(c+1)} >
-                    <Text>{"Count : "+c}</Text>
+                    onPress={handleDice} >
+
+                    <ImageBackground
+                        source={require(`../assets/${dice}.png`)}
+                        style={{
+                            height: "100%",
+                            width: "100%",
+                            borderRadius: 6,
+                        }}
+                    />           
                 </TouchableOpacity>
             </View>
 
@@ -37,10 +58,10 @@ export const Game = () => {
 const styles = StyleSheet.create({
     button: {
         alignItems: "center",
-        backgroundColor: "#DDDDDD",
+        backgroundColor: "grey",
         width:100,
         height:100,
-        borderRadius:10
+        borderRadius: 13
     },
 
     diceparent:
