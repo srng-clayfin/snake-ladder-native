@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, Dimensions } from "react-native"
 
+const windowWidth = Dimensions.get('window').width;
+const blockwidth = windowWidth-20
 
 export const Block = (p) =>
 {
@@ -17,6 +19,9 @@ export const Block = (p) =>
       //    }
 
       // }, [no]);
+
+
+
 
 
 
@@ -51,8 +56,8 @@ export const Block = (p) =>
 
 const styles = StyleSheet.create ({
     parent:{
-            height:35,
-            width:35,
+            height:(blockwidth/10)-1,
+            width: (blockwidth/10)-1,
             borderWidth:1
         },
     child:{

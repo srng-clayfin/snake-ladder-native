@@ -1,9 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Dimensions, View } from 'react-native';
 import { Block } from "./Block";
 
 
-export const Main = () =>
+
+const windowWidth = Dimensions.get('window').width;
+
+export const Board = () =>
 {
+
 
     return(
 
@@ -24,8 +28,8 @@ export const Main = () =>
 
 const styles = StyleSheet.create({
     container: {
-      height: 360,
-      width : 360,
+      height: windowWidth-20,
+      width : windowWidth-20,
       borderWidth:3,
       padding:2,      
 
