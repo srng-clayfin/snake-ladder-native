@@ -1,26 +1,32 @@
 import { useEffect, useState } from "react"
-import { StyleSheet, TouchableOpacity, ImageBackground, View } from "react-native"
+import { StyleSheet, TouchableOpacity, ImageBackground, View, TextPropTypes } from "react-native"
 import { Board } from "./Board"
 
 const dicelist = [require("../assets/1.png"), require("../assets/2.png"), require("../assets/3.png"),
-require("../assets/4.png"), require("../assets/5.png"), require("../assets/6.png")]
+    require("../assets/4.png"), require("../assets/5.png"), require("../assets/6.png")]
 
+var c = 1;
 
 export const Game = () => {
 
     const [dice, setDice] = useState(0);
+
+    const [tp, setTp] = useState(0);
+
     const [place1, setPlace1] = useState(1);
     const [place2, setPlace2] = useState(1);
     const [place3, setPlace3] = useState(1);
-    const [place4, setPlace4] = useState(1);
+    const [place4, setPlace4] = useState(1);    
+    const [slow, setSlow] = useState(0);
     const [diceflag, setDiceflag] = useState(true);
     const [diceuser, setDiceser] = useState(true);
 
     // const diceImg = require(`../assets/${dice}.png`);
 
     const diceNo = () => {
-        const count = Math.floor(Math.random() * (6 - 1 + 1) + 1)
+        const count = Math.floor(Math.random() * (6 - 1 + 1) + 1);
         if (dice != count) {
+            setSlow(count);
             setDice(count);
         }
         else {
@@ -28,9 +34,44 @@ export const Game = () => {
         }
     }
 
-    useEffect(() => {       
+    // useEffect(() => {
+    //     const myVar = setTimeout(() => {
+    //         setTp(tp + 1)
+    //         setDiceflag(!diceflag);
+    //         setPlace1(place1 + 1);
 
-        diceuser === false ? setPlace1(place1 + dice) : setPlace2(place2 + dice)
+
+    //     if (tp == dice) {
+    //         c = 0;
+    //     }
+
+    //     }, 300);       
+
+
+    // }, [c]);
+
+
+    const countUser1 = () => {
+        const no = place1 + dice;
+        setPlace1(no)
+    }
+
+
+    const countUser2 = () => {
+        const no = place2 + dice;
+        setPlace2(no);
+    }
+
+    useEffect(() => {
+
+        if (diceuser === false) {
+            setSlow(place1 + dice)
+            countUser1()
+        }
+        else {
+            setSlow(place2 + dice)
+            countUser2()
+        }
 
         if (place1 >= 100 || place2 >= 100) {
             setPlace1(1);
@@ -40,6 +81,8 @@ export const Game = () => {
     }, [diceflag])
 
     const handleDice = () => {                
+
+
         diceNo();
         setDiceflag(!diceflag);
         setDiceser(!diceuser);
