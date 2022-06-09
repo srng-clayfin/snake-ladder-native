@@ -6,19 +6,35 @@ const blockwidth = windowWidth-20
 
 export const Block = (p) =>
 {
-      let user = 1;
+      let user = 1;     
+      
+      const user1 = "😈";
+      const user2 = "🎅";
+      const user3 = "🤡" ;
+      const user4 = "🌞" ;
 
       const [no, setno] = useState(1);
 
     return(
             <>
                 <View style={styles.parent}>                   
-                   {p.value === p.place1 ?
-                <Text style={styles.child}>
-                       {"😈"}
+                   {         
+                    p.value === p.place1 && p.value === p.place2 ?
+                    <Text style={styles.child1}>
+                        {user1+user2}
                     </Text>
-                    :
-
+                        :
+                    p.value === p.place1 ?                
+                    <Text style={styles.child}>
+                        {user1}
+                    </Text>
+                        :                    
+                    p.value === p.place2 ?                
+                    <Text style={styles.child}>
+                        {user2}
+                    </Text>
+                        :                   
+                        
                   //   p.value === 24 || p.value === 57 ?
                   //   <Text style={styles.child}>
                   //      {"🔥"}
@@ -29,7 +45,7 @@ export const Block = (p) =>
                   //      {"🐍"}
                   //   </Text>
                   //   :
-                  
+
                     <Text style={styles.child}>
                        {p.value}
                     </Text>
@@ -50,5 +66,10 @@ const styles = StyleSheet.create ({
             textAlign: 'center',
             marginTop: 6,
             fontWeight: 'normal',
+        },
+        child1:{
+            textAlign: 'center',            
         }
+
+    
  })

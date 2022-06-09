@@ -22,7 +22,7 @@ export const Board = (p) =>
                     {
                         [...Array(100)].map((el, i) =>
                             <View key={i}>
-                                <Block value={100 - i} place1={p.place1} />
+                                <Block value={100 - i} place1={p.place1} place2={p.place2}/>
                             </View>
                         )
                     }
