@@ -3,12 +3,13 @@ import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 import { Game } from "./Game";
 import { PlayerRadio } from './PlayerRadio';
 
-export const UserInformation = () => {
+export const UserInformation = ({ navigation }) => {
 
     const [modalVisible, setModalVisible] = useState(false);
 
     const handlenext = () => {
         setModalVisible(!modalVisible)
+        // navigation.navigate("Game");
     }
 
 
@@ -33,11 +34,8 @@ export const UserInformation = () => {
                         <Pressable
                             style={[styles.button, styles.buttonClose]}
                             onPress={
-                                handlenext
-                                //     () => {
-                                //     handlenext
-                                //    // setModalVisible(!modalVisible)
-                                //     }
+                                // () => navigation.navigate("Game")
+                                handlenext                                
                             }
                         >
                             <Text style={styles.textStyle}>Next</Text>
