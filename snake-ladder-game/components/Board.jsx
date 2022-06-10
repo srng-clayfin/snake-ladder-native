@@ -37,9 +37,10 @@ export const Board = (p) =>
 
 const styles = StyleSheet.create({
     container: {
-      height: windowWidth-20,
-      width : windowWidth-20,
+        height: windowWidth-20,
+        width : windowWidth-20,
       borderWidth:3,
+      borderColor:"red"
         //   
 
     },

@@ -1,14 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Game } from './components/Game';
 import { Main } from './components/Main';
 
 
+export const userContext = React.createContext();
 
 export default function App() {
+
+  const [userno, setUserno] = useState(1)
+
   return (
-    
     <View style={styles.container}>
-      <Main />
+      <userContext.Provider value={{ userno, setUserno }} >
+
+        <Main />         
+
+      </userContext.Provider>
     </View>
   );
 }

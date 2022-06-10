@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
+import { Game } from "./Game";
 import { PlayerRadio } from './PlayerRadio';
 
 export const UserInformation = () => {
 
     const [modalVisible, setModalVisible] = useState(false);
+
+    const handlenext = () => {
+        setModalVisible(!modalVisible)
+    }
+
+
+
     return (
         <View style={styles.centeredView}>
             <Modal
@@ -24,7 +32,13 @@ export const UserInformation = () => {
 
                         <Pressable
                             style={[styles.button, styles.buttonClose]}
-                            onPress={() => setModalVisible(!modalVisible)}
+                            onPress={
+                                handlenext
+                                //     () => {
+                                //     handlenext
+                                //    // setModalVisible(!modalVisible)
+                                //     }
+                            }
                         >
                             <Text style={styles.textStyle}>Next</Text>
                         </Pressable>
