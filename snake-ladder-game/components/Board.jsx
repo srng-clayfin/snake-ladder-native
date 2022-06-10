@@ -2,7 +2,8 @@ import { StyleSheet, ImageBackground, Dimensions, View } from 'react-native';
 import { Block } from "./Block";
 
 const windowWidth = Dimensions.get('window').width;
-const image = require('../assets/snake1.jpeg');
+//const image = require('../assets/snake1.jpeg');
+const image = require('../assets/snake-imp.jpg');
 
 export const Board = (p) =>
 {
