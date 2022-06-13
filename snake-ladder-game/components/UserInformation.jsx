@@ -1,15 +1,14 @@
 import React, { useContext, useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
-import { Game } from "./Game";
 import { PlayerRadio } from './PlayerRadio';
 
 export const UserInformation = ({ navigation }) => {
 
-    const [modalVisible, setModalVisible] = useState(false);
+    const [modalVisible, setModalVisible] = useState(true);
 
     const handlenext = () => {
         setModalVisible(!modalVisible)
-        // navigation.navigate("Game");
+        navigation.navigate("Game");        
     }
 
 
@@ -33,8 +32,7 @@ export const UserInformation = ({ navigation }) => {
 
                         <Pressable
                             style={[styles.button, styles.buttonClose]}
-                            onPress={
-                                // () => navigation.navigate("Game")
+                            onPress={                               
                                 handlenext                                
                             }
                         >
@@ -42,13 +40,7 @@ export const UserInformation = ({ navigation }) => {
                         </Pressable>
                     </View>
                 </View>
-            </Modal>
-            <Pressable
-                style={[styles.button, styles.buttonOpen]}
-                onPress={() => setModalVisible(true)}
-            >
-                <Text style={styles.textStyle}>Start Game</Text>
-            </Pressable>
+            </Modal>            
         </View>
     );
 };

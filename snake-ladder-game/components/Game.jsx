@@ -7,7 +7,7 @@ const dicelist = [require("../assets/1.png"), require("../assets/2.png"), requir
 
 var c = 1;
 
-export const Game = () => {
+export const Game = ({navigation}) => {
 
     const [dice, setDice] = useState(0);
 
