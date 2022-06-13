@@ -8,13 +8,13 @@ import { MyStack } from './components/Stack';
 export const userContext = React.createContext();
 
 export default function App() {
-  
   const [userno,setUserno] = useState(1)
+  const [usernames, setUsernames] = useState([]);
 
   return (
 
     <NavigationContainer>
-      <userContext.Provider value={{ userno, setUserno }} >
+      <userContext.Provider value={{ userno, setUserno, usernames, setUsernames }} >
         <MyStack />
       </userContext.Provider>
     </NavigationContainer>   

@@ -7,8 +7,8 @@ export const UserInformation = ({ navigation }) => {
     const [modalVisible, setModalVisible] = useState(true);
 
     const handlenext = () => {
-        setModalVisible(!modalVisible)
-        navigation.navigate("Game");        
+        setModalVisible(!modalVisible);
+        navigation.navigate("Playername");        
     }
 
 
@@ -20,7 +20,7 @@ export const UserInformation = ({ navigation }) => {
                 transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => {
-                    Alert.alert("Modal has been closed.");
+                    // Alert.alert("Modal has been closed.");
                     setModalVisible(!modalVisible);
                 }}
             >
