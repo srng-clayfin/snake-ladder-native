@@ -1,6 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Game } from './components/Game';
 import { Main } from './components/Main';
 import { MyStack } from './components/Stack';
 
@@ -18,6 +19,8 @@ export default function App() {
         <MyStack />
       </userContext.Provider>
     </NavigationContainer>   
+
+    // <Game />
 
   );
 }
